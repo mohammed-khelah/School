@@ -1,0 +1,15 @@
+﻿@if (ViewBag.UserType == "Admin" || ViewBag.UserType == "User" || ViewBag.UserType == "Student")
+{
+    {
+        ViewData["Title"] = "Home Page";
+    }
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+}
+else
+{
+    <h1 style="color: red;text-align: center;   ">Access to this page is not allowed</h1>
+}

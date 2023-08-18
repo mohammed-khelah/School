@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "5C05xbV+87m37XL+gpPEJ9EmQ5pbMD2/IxVdR/3jp7ZPAsxfrDtBJeEkH3sYK5fS+06kX9DvspNrFdF4xn+fSg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Mohammed Khelah\\source\\repos\\School\\TestAppSchool.Core\\TestAppSchool.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mohammed Khelah\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\Mohammed Khelah\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\Mohammed Khelah\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

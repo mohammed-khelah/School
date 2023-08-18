@@ -1,0 +1,104 @@
+﻿@model CreateUserDto
+
+@{
+    ViewData["Title"] = "اضافة طالب جديد";
+    Layout = null;
+}
+
+<html lang="en" direction="rtl" style="direction: rtl;">
+<head>
+    <base href="../../../">
+    <meta charset="utf-8" />
+    <title> @ViewData["Title"] </title>
+    <meta name="description" content="Initialized via remote ajax json data" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="canonical" href="https://keenthemes.com/metronic" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <link href="~/assets/plugins/global/plugins.bundle.rtl.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/plugins/custom/prismjs/prismjs.bundle.rtl.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/style.bundle.rtl.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/themes/layout/header/base/light.rtl.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/themes/layout/header/menu/light.rtl.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/themes/layout/brand/light.rtl.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/themes/layout/aside/light.rtl.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/css/pages/login/login-1.rtl.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/LogoIcon.jpg" />
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
+</head>
+<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+    <div class="d-flex flex-column flex-root">
+        <div class="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-column-fluid bg-white" id="kt_login">
+
+            <div class="login-aside d-flex flex-column flex-row-auto" style="background-color: #F2C98A;">
+                <div class="d-flex flex-column-auto flex-column pt-lg-40 pt-15">
+                    <h3 class="font-weight-bolder text-center font-size-h4 font-size-h1-lg" style="color: #986923;">
+                        نظام ادارة المحتوى
+                    </h3>
+                    <img src="~/ThemImages/stdModel-logo.jpeg" width="40%" style="margin:auto; margin-top: 50px;" />
+                </div>
+            </div>
+
+            <div class="login-content flex-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden p-7 mx-auto">
+                <div class="d-flex flex-column-fluid flex-center">
+                    <div class="login-form login-signin">
+                        <form asp-action="Add" method="post" class="ajaxForm" id="kt_login_signin_form">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="FirstName" class="font-size-h6 font-weight-bolder text-dark"></label>
+                                        <input asp-for="FirstName" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" />
+                                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="FamilyName" class="font-size-h6 font-weight-bolder text-dark"></label>
+                                        <input asp-for="FamilyName" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" />
+                                        <span asp-validation-for="FamilyName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="IdentityNumber" class="font-size-h6 font-weight-bolder text-dark"></label>
+                                <input asp-for="IdentityNumber" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" autocomplete="off" />
+                                <span asp-validation-for="IdentityNumber" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="PhoneNumber" class="font-size-h6 font-weight-bolder text-dark"></label>
+                                <input asp-for="PhoneNumber" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" autocomplete="off" />
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Email" class="font-size-h6 font-weight-bolder text-dark"></label>
+                                <input asp-for="Email" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg" autocomplete="off" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="اضافة طالب جديد" class="btn btn-success font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3" />
+                                <a href="~/Identity/Account/Login" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">تسجيل الدخول</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/assets/js/pages/custom/login/login-general.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

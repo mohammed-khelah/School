@@ -1,0 +1,168 @@
+﻿@if (ViewBag.UserType == "Admin" || ViewBag.UserType == "User")
+{
+    @model CreateStudentDto
+
+    {
+        ViewData["Title"] = "اضافة طالب جديد";
+        Layout = null;
+    }
+
+    <form asp-action="Create" class="ajaxForm" tname="#kt_datatable" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="FatherName" class="control-label"></label>
+                    <input asp-for="FatherName" class="form-control" />
+                    <span asp-validation-for="FatherName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="GrandfatherName" class="control-label"></label>
+                    <input asp-for="GrandfatherName" class="form-control" />
+                    <span asp-validation-for="GrandfatherName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="FamilyName" class="control-label"></label>
+                    <input asp-for="FamilyName" class="form-control" />
+                    <span asp-validation-for="FamilyName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="IdentityNumber" class="control-label"></label>
+                    <input asp-for="IdentityNumber" class="form-control" />
+                    <span asp-validation-for="IdentityNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="Gender" class="control-label"></label>
+                    <select asp-for="Gender" class="form-control">
+                        <option value="Male">ذكر</option>
+                        <option value="Female">أنثى</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <img id="myImg" class="img-thumbnail" style="height:250px" />
+                    <br />
+                    <label asp-for="ProfilePhoto" class="control-label"></label>
+                    <input asp-for="ProfilePhoto" accept="image/*" onchange="loadFile(event)" class="form-control" />
+                    <span asp-validation-for="ProfilePhoto" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <img id="myImg1" class="img-thumbnail" style="height:250px" />
+                    <br />
+                    <label asp-for="IdentityPhoto" class="control-label"></label>
+                    <input asp-for="IdentityPhoto" accept="image/*" onchange="loadFile1(event)" class="form-control" />
+                    <span asp-validation-for="IdentityPhoto" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="DOB" class="control-label"></label>
+                    <input asp-for="DOB" class="form-control" />
+                    <span asp-validation-for="DOB" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="DateRegisterSchool" class="control-label"></label>
+                    <input asp-for="DateRegisterSchool" class="form-control" />
+                    <span asp-validation-for="DateRegisterSchool" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="Level" class="control-label"></label>
+                    <select asp-for="Level" class="form-control" asp-items="@ViewBag.LevelList"></select>
+                    <span asp-validation-for="Level" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label asp-for="LastYearEstimate" class="control-label"></label>
+                    <input asp-for="LastYearEstimate" class="form-control" />
+                    <span asp-validation-for="LastYearEstimate" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+            
+        <div class="form-group">
+            <input type="submit" value="اضافة" class="btn btn-primary" />
+            <a data-dismiss="modal" aria-label="Close" class="btn btn-danger">الغاء</a>
+        </div>
+    </form>
+
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        var loadFile = function (event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var myImg = document.getElementById('myImg');
+                myImg.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+        var loadFile1 = function (event) {
+            var reader1 = new FileReader();
+            reader1.onload = function () {
+                var myImg1 = document.getElementById('myImg1');
+                myImg1.src = reader1.result;
+            }
+            reader1.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+
+    <script>
+        PageLoadActions();
+    </script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+else
+{
+    {
+        Layout = null;
+    }
+
+    <h1 style="color: red;text-align: center;   ">Access to this page is not allowed</h1>
+}
